@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ppu-exporter-mock-service
+  name: ppu-exporter-mock
   namespace: ppu-system
   labels:
     app: ppu-exporter-mock

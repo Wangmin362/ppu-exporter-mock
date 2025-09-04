@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: ppu-exporter-mock-daemonset
+  name: ppu-exporter-mock
   namespace: ppu-system
   labels:
     app: ppu-exporter-mock
@@ -9,11 +9,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: ppu-exporter-mock-daemon
+      app: ppu-exporter-mock
+      component: exporter
   template:
     metadata:
       labels:
-        app: ppu-exporter-mock-daemon
+        app: ppu-exporter-mock
         component: exporter
       annotations:
         prometheus.io/scrape: "true"
@@ -24,7 +25,7 @@ spec:
       hostPID: false
       containers:
       - name: ppu-exporter
-        image: ppu-exporter-mock:latest
+        image: IMAGE_PLACEHOLDER
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -76,7 +77,7 @@ spec:
             - ALL
       restartPolicy: Always
       nodeSelector:
-        kubernetes.io/os: linux
+        ppu: "on"
       tolerations:
       - key: node-role.kubernetes.io/master
         operator: Exists
