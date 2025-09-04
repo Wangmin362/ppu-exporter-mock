@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ppu-exporter-mock
+  namespace: ppu-system
+  labels:
+    app: ppu-exporter-mock
+    component: exporter
+spec:
+  selector:
+    matchLabels:
+      app: ppu-exporter-mock
+  endpoints:
+  - port: metrics
+    path: /metrics
+    interval: 30s
+    scrapeTimeout: 10s
+    scheme: http
+  namespaceSelector:
+    matchNames:
+    - ppu-system
