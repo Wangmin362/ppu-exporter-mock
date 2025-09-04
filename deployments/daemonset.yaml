@@ -68,13 +68,8 @@ spec:
           timeoutSeconds: 5
           failureThreshold: 3
         securityContext:
-          runAsNonRoot: true
-          runAsUser: 1000
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          capabilities:
-            drop:
-            - ALL
+          privileged: true
+          readOnlyRootFilesystem: false
       restartPolicy: Always
       nodeSelector:
         ppu: "on"
