@@ -15,4 +15,4 @@ COPY --from=builder /app/ppu-exporter .
 RUN chmod +x /root/ppu-exporter
 EXPOSE 8080
 
-CMD ["./ppu-exporter"]
+ENTRYPOINT ["./ppu-exporter"]
