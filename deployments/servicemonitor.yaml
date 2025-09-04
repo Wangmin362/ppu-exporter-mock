@@ -6,6 +6,7 @@ metadata:
   labels:
     app: ppu-exporter-mock
     component: exporter
+    release: prometheus
 spec:
   selector:
     matchLabels:
