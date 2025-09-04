@@ -80,12 +80,7 @@ docker-logs:
 # Push Docker image (requires DOCKER_REGISTRY environment variable)
 docker-push: docker-build
 	@echo "Pushing Docker image..."
-	@if [ -z "$(DOCKER_REGISTRY)" ]; then \
-		echo "Error: DOCKER_REGISTRY environment variable not set"; \
-		exit 1; \
-	fi
-	docker tag $(DOCKER_IMAGE):$(DOCKER_TAG) $(DOCKER_REGISTRY)/$(DOCKER_IMAGE):$(DOCKER_TAG)
-	docker push $(DOCKER_REGISTRY)/$(DOCKER_IMAGE):$(DOCKER_TAG)
+	docker push $(DOCKER_IMAGE):$(DOCKER_TAG)
 
 # Show available targets
 help:
